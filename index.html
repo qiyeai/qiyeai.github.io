@@ -9,13 +9,13 @@
 <meta name="robots" content="index,follow">
 <meta name="applicable-device" content="pc,mobile">
 <meta http-equiv="Cache-Control" content="no-transform">
-<meta name="theme-color" content="#c96a1b">
+<meta name="theme-color" content="#12273d">
 <!-- Bing 站长验证：去 bing.com/webmasters 添加网站后，把它给你的 meta 标签粘到这里 -->
 <!-- <meta name="msvalidate.01" content="把Bing给你的验证码粘在这里"> -->
 <!-- 百度站长验证（换自定义域名后再加，github.io 域名百度抓不到） -->
 <!-- <meta name="baidu-site-verification" content="把百度给你的验证码粘在这里"> -->
 <link rel="canonical" href="https://qiyeai.github.io/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c96a1b'/%3E%3Ctext x='16' y='22' font-size='16' font-weight='700' text-anchor='middle' fill='%23fff' font-family='Arial'%3EAI%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c8f45a'/%3E%3Ctext x='16' y='22' font-size='16' font-weight='700' text-anchor='middle' fill='%2312273d' font-family='Arial'%3EAI%3C/text%3E%3C/svg%3E">
 <meta property="og:title" content="企业AI转型免费测评：3分钟诊断＋企业AI培训怎么选">
 <meta property="og:description" content="8 道题，看看你们公司 AI 用得怎么样，免费拿诊断报告。">
 <meta property="og:type" content="website">
@@ -42,294 +42,505 @@
 </script>
 <style>
 :root{
---ink:#1a2b45; --ink-soft:#4a5a75; --muted:#8a94a6;
---line:#e7e4dc; --bg:#faf9f6; --card:#ffffff;
---accent:#c96a1b; --accent-dark:#a85515; --accent-soft:#fdf3e7;
---ok:#1c7c4d; --radius:14px;
+--ink:#142237;--muted:#657083;--paper:#f8f7f3;--white:#fff;--line:#dfe2e1;
+--orange:#ec6737;--orange-dark:#d94e1e;--orange-text:#c2410c;--orange-soft:#fff0e8;
+--lime:#c8f45a;--navy:#12273d;--ok:#278257;
 }
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
-.wrap{max-width:660px;margin:0 auto;padding:0 20px 72px}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;line-height:1.5;-webkit-tap-highlight-color:transparent}
+h1,h2,h3,p,ol,ul,blockquote{margin:0}
+ol,ul{padding:0;list-style:none}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+svg{display:block}
 .hidden{display:none!important}
+.shell{width:min(1160px,100% - 48px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
 /* 顶栏 */
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--line)}
-.brand{font-size:15px;font-weight:700;letter-spacing:.5px}
-.brand span{color:var(--accent)}
-.topbar .tag{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:4px 12px;background:#fff}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:11px;font-weight:850;letter-spacing:-.02em}
+.brand>span:last-child>span{color:var(--orange-text)}
+.brand-mark{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:var(--lime);color:var(--navy);transform:rotate(-4deg)}
+.nav-meta{display:flex;align-items:center;gap:7px;font-size:14px;color:var(--muted)}
 
 /* 首屏 */
-.hero{padding:44px 4px 8px}
-.eyebrow{display:inline-block;font-size:12px;font-weight:700;color:var(--accent-dark);background:var(--accent-soft);border:1px solid #f3ddba;border-radius:6px;padding:5px 10px;margin-bottom:16px;letter-spacing:1px}
-.hero h1{font-size:30px;line-height:1.35;margin:0 0 14px;letter-spacing:.5px}
-.hero h1 em{font-style:normal;color:var(--accent-dark)}
-.hero .lede{font-size:15px;color:var(--ink-soft);margin:0 0 26px}
-.hero .lede b{color:var(--ink)}
-.btn{display:block;width:100%;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:12px;background:var(--accent);color:#fff;cursor:pointer;letter-spacing:1px}
-.btn:active{background:var(--accent-dark)}
-.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);font-weight:600;margin-top:10px}
-.micro{font-size:12px;color:var(--muted);text-align:center;margin-top:14px;line-height:1.8}
-.facts{display:flex;gap:10px;margin:28px 0 6px}
-.fact{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center}
-.fact b{display:block;font-size:19px;margin-bottom:2px}
-.fact span{font-size:12px;color:var(--muted)}
+.hero{position:relative;padding:72px 0 0;overflow:hidden}
+.hero-grid{position:absolute;inset:0 0 auto 52%;height:680px;opacity:.36;background-image:linear-gradient(#dce0dc 1px,transparent 1px),linear-gradient(90deg,#dce0dc 1px,transparent 1px);background-size:40px 40px;-webkit-mask-image:linear-gradient(#000,transparent 92%);mask-image:linear-gradient(#000,transparent 92%)}
+.hero-layout{position:relative;display:grid;grid-template-columns:1.18fr .82fr;gap:80px;align-items:center}
+.badge,.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:800;letter-spacing:.08em;color:var(--orange-text)}
+.badge{padding:8px 13px;border:1px solid #f2c9b8;border-radius:999px;background:var(--orange-soft)}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px #ec673721}
+.hero h1{max-width:760px;margin:24px 0 20px;font-size:clamp(40px,5vw,66px);font-weight:900;line-height:1.12;letter-spacing:-.05em}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero-lead{max-width:650px;font-size:18px;line-height:1.85;color:#536174}
+.hero-lead b{color:var(--ink)}
+.hero-actions{display:flex;align-items:center;gap:24px;margin-top:34px}
+.hero-actions>span{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+.hero-actions>span .ico{width:17px;color:var(--ok)}
 
-/* 答题 */
-.quiz-head{padding:26px 0 0}
-.qcount{font-size:13px;color:var(--muted);margin-bottom:6px}
-.bar{height:6px;background:#eceae4;border-radius:3px;overflow:hidden;margin-bottom:22px}
-.bar>div{height:100%;background:var(--accent);width:0;transition:width .25s}
-.q-title{font-size:20px;font-weight:700;line-height:1.5;margin:0 0 8px}
-.q-dim{font-size:12px;color:var(--muted);margin:0 0 18px;letter-spacing:.5px}
-.opt{display:block;width:100%;text-align:left;padding:15px 16px;margin:0 0 10px;font-size:16px;line-height:1.55;background:var(--card);border:1px solid var(--line);border-radius:12px;cursor:pointer;color:var(--ink)}
-.opt:active{border-color:var(--accent);background:var(--accent-soft)}
-.opt .k{display:inline-block;width:24px;height:24px;line-height:24px;text-align:center;border:1px solid var(--line);border-radius:50%;font-size:13px;color:var(--muted);margin-right:10px;background:#fff}
-.nav{margin-top:18px}
-.backlink{display:block;text-align:center;margin-top:14px;font-size:14px;color:var(--muted);background:none;border:none;cursor:pointer}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:28px;min-height:56px;padding:0 24px;border:0;border-radius:10px;background:var(--orange);color:#fff;font-weight:800;font-size:16px;box-shadow:0 8px 0 #bd3e14;transition:transform .2s,box-shadow .2s,background .2s}
+.button:hover{background:var(--orange-dark);transform:translateY(2px);box-shadow:0 6px 0 #ad3510}
+.button:active{transform:translateY(6px);box-shadow:0 2px 0 #ad3510}
+.button:disabled{opacity:.6;cursor:default;transform:none}
+.button.secondary{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+.button.secondary:hover{background:var(--paper)}
+.button.block{width:100%}
 
-/* 报告 */
-.report{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 22px;margin-top:26px}
-.r-label{font-size:12px;color:var(--muted);letter-spacing:1px;margin-bottom:6px}
-.r-score{font-size:15px;color:var(--ink-soft)}
-.r-score b{font-size:46px;color:var(--ink);font-weight:800}
-.r-score small{color:var(--muted)}
-.tier{display:inline-block;font-size:14px;font-weight:700;color:#fff;background:var(--ink);border-radius:20px;padding:5px 16px;margin:12px 0 4px}
-.verdict{font-size:16px;line-height:1.75;margin:12px 0 0}
-.sec-t{font-size:13px;font-weight:700;letter-spacing:1px;color:var(--muted);margin:24px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
-.diag{margin:0;padding:0;list-style:none}
-.diag li{font-size:15px;line-height:1.75;padding:11px 0 11px 4px;border-bottom:1px dashed var(--line)}
-.diag li:last-child{border-bottom:none}
-.diag li::before{content:"▸ ";color:var(--accent);font-weight:700}
-.dimrow{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:14px}
-.dimrow .n{width:86px;flex-shrink:0;color:var(--ink-soft)}
-.dimrow .t{flex:1;height:8px;background:#eceae4;border-radius:4px;overflow:hidden}
-.dimrow .t>div{height:100%;background:var(--ink)}
-.dimrow .v{width:44px;text-align:right;color:var(--muted);font-size:13px}
-.cta-box{background:var(--accent-soft);border:1px solid #f3ddba;border-radius:12px;padding:20px;margin-top:22px}
-.cta-box p{font-size:15px;line-height:1.75;margin:0 0 14px}
-.cta-box p b{color:var(--accent-dark)}
+/* 首屏右侧卡片（装饰） */
+.score-card{position:relative;min-height:470px;padding:26px;border-radius:28px;background:var(--navy);color:#fff;overflow:hidden;box-shadow:24px 24px 0 var(--lime);transform:rotate(1.2deg)}
+.score-card::before{content:"";position:absolute;top:-70px;right:-80px;width:200px;height:200px;border-radius:50%;background:var(--orange);filter:blur(3px);opacity:.9}
+.score-top{position:relative;display:flex;justify-content:space-between;font-size:11px;font-weight:800;letter-spacing:.16em;color:#b9c5cf}
+.score-top .ico{width:24px;height:24px;color:var(--lime)}
+.radar{position:relative;display:grid;place-items:center;width:300px;height:300px;margin:28px auto 0}
+.radar::before,.radar::after{content:"";position:absolute;background:#ffffff24}
+.radar::before{width:1px;height:90%}
+.radar::after{width:90%;height:1px}
+.radar-ring{position:absolute;border:1px solid #ffffff30;transform:rotate(45deg)}
+.ring-one{width:230px;height:230px}.ring-two{width:164px;height:164px}.ring-three{width:96px;height:96px}
+.radar-shape{width:170px;height:190px;border-radius:30%;background:#c8f45a45;clip-path:polygon(50% 0,100% 78%,20% 100%,0 35%)}
+.radar-center{position:absolute;display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--lime);color:var(--navy);font-size:22px;font-weight:900;box-shadow:0 0 0 10px #c8f45a1c}
+.radar-label{position:absolute;font-size:12px;color:#b9c5cf}
+.label-one{top:5px}.label-two{bottom:35px;left:-1px}.label-three{bottom:35px;right:-3px}
+.score-note{position:relative;display:flex;justify-content:space-between;align-items:end;padding-top:18px;border-top:1px solid #ffffff29}
+.score-note span{font-size:12px;color:#9ab}
+.score-note strong{font-size:15px}
+
+.stats{position:relative;display:grid;grid-template-columns:repeat(3,1fr) 1.5fr;margin-top:80px;border-block:1px solid var(--line)}
+.stats>div{display:flex;align-items:baseline;gap:12px;padding:26px 30px;border-right:1px solid var(--line)}
+.stats strong{font-size:30px}
+.stats span,.stats p{font-size:13px;color:var(--muted)}
+.stats p{display:grid;place-items:center;text-align:center}
+
+/* 测评区：答题 / 报告 / 留资 / 成功 */
+.quiz-section{padding:70px 0;background:var(--navy);scroll-margin-top:0}
+.card{max-width:800px;margin:auto;padding:48px;border-radius:24px;background:#fff;box-shadow:14px 14px 0 var(--lime)}
+.quiz-progress-row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.quiz-progress-row strong{color:var(--ink)}
+.quiz-progress{height:6px;margin:13px 0 38px;border-radius:99px;background:#edf0ed;overflow:hidden}
+.quiz-progress span{display:block;width:0;height:100%;background:var(--orange);transition:width .3s}
+.quiz-dimension{font-size:13px;font-weight:800;color:var(--orange-text)}
+.card h2.q-title{margin:12px 0 30px;font-size:28px;line-height:1.4;letter-spacing:-.03em}
+.quiz-options{display:grid;gap:12px}
+.quiz-options button{display:flex;align-items:center;gap:14px;width:100%;min-height:62px;padding:10px 16px;border:1px solid var(--line);border-radius:12px;background:#fbfbf8;color:var(--ink);font-size:16px;line-height:1.5;text-align:left;transition:all .2s}
+.quiz-options button:hover{border-color:var(--orange);background:var(--orange-soft);transform:translateX(4px)}
+.quiz-options button.picked{border-color:var(--orange);background:var(--orange-soft)}
+.quiz-options .k{display:grid;place-items:center;flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:12px;font-weight:800}
+.quiz-options .ico{width:18px;margin-left:auto;color:var(--orange)}
+.back-button{margin-top:24px;padding:0;border:0;background:none;font-size:13px;color:var(--muted)}
+.back-button:hover{color:var(--ink)}
+
+.result-head{text-align:center}
+.result-badge{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:99px;background:#eefbcf;color:#4f7220;font-size:12px;font-weight:800}
+.result-badge .ico{width:17px;height:17px}
+.result-head>p{margin-top:18px;color:var(--muted)}
+.result-head h2{margin:6px 0;font-size:52px;line-height:1.2;color:var(--orange)}
+.result-score strong{font-size:28px}
+.result-score span{color:var(--muted)}
+.verdict{max-width:560px;margin:16px auto 0;font-size:16px;line-height:1.85;color:#445166}
+.sec-t{margin:34px 0 14px;padding-top:26px;border-top:1px solid var(--line);font-size:13px;font-weight:800;letter-spacing:.08em;color:var(--muted)}
+.dimrow{display:flex;align-items:center;gap:14px;margin:12px 0;font-size:14px}
+.dimrow .n{flex:none;width:72px;color:#445166}
+.dimrow .t{flex:1;height:10px;border-radius:99px;background:#edf0ed;overflow:hidden}
+.dimrow .t>i{display:block;height:100%;border-radius:99px;background:var(--navy)}
+.dimrow.weak .t>i{background:var(--orange)}
+.dimrow .v{flex:none;width:44px;text-align:right;font-size:13px;color:var(--muted)}
+.dimrow .w{font-size:11px;font-weight:800;color:var(--orange-text);margin-left:6px}
+.diag{display:grid;gap:10px}
+.diag li{display:flex;gap:14px;padding:16px 18px;border-radius:10px;background:#f4f5f1;font-size:15px;line-height:1.75}
+.diag li b{flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--orange);color:#fff;font-size:13px}
+.cta-box{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;margin-top:30px;padding:26px 28px;border-radius:16px;background:var(--navy);color:#c8d0d8}
+.cta-box p{line-height:1.8;font-size:15px}
+.cta-box p b{color:var(--lime)}
+.cta-box strong{display:block;margin-bottom:6px;font-size:18px;color:#fff}
+.retry{display:block;margin:22px auto 0;padding:0;border:0;background:none;font-size:13px;color:var(--muted);text-decoration:underline;text-underline-offset:4px}
 
 /* 表单 */
-.field{margin-bottom:14px}
-.field label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
-.field label i{font-style:normal;color:var(--muted);font-weight:400;font-size:12px}
-.field input,.field select{width:100%;padding:13px 14px;font-size:16px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);appearance:none}
-.field select{background:#fff url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a94a6' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat right 14px center}
-.consent{display:flex;gap:10px;font-size:13px;color:var(--ink-soft);line-height:1.65;margin:18px 0 6px;cursor:pointer}
-.consent input{width:19px;height:19px;flex-shrink:0;margin-top:2px;accent-color:var(--accent)}
-.err{color:#c0392b;font-size:13px;margin:8px 0 0;min-height:20px}
-.hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.form-head{margin-bottom:28px}
+.form-head h2{margin:12px 0 8px;font-size:28px;letter-spacing:-.03em}
+.form-head p{color:var(--muted);font-size:14px;line-height:1.8}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+.field label{display:block;margin-bottom:7px;font-size:14px;font-weight:700}
+.field label i{font-style:normal;font-weight:400;font-size:12px;color:var(--muted)}
+.field input,.field select{width:100%;height:50px;padding:0 14px;border:1px solid var(--line);border-radius:10px;background:#fbfbf8;font-size:16px;appearance:none;transition:border-color .2s,box-shadow .2s}
+.field select{background:#fbfbf8 url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23657083' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat right 14px center}
+.field input:focus,.field select:focus{outline:none;border-color:var(--orange);background-color:#fff;box-shadow:0 0 0 4px var(--orange-soft)}
+.consent{display:flex;gap:10px;margin:22px 0 4px;font-size:13px;line-height:1.7;color:#445166;cursor:pointer}
+.consent input{flex:none;width:19px;height:19px;margin-top:2px;accent-color:var(--orange)}
+.err{min-height:22px;margin:10px 0 14px;font-size:13px;color:#c0392b}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.done{text-align:center;padding:12px 0}
+.done .check{display:grid;place-items:center;width:72px;height:72px;margin:0 auto 20px;border-radius:50%;background:var(--lime);color:var(--navy)}
+.done .check .ico{width:34px;height:34px;stroke-width:2.4}
+.done h2{font-size:30px;margin-bottom:12px}
+.done p{color:#445166;line-height:1.85}
+.done .wx{display:inline-block;margin-top:18px;padding:10px 16px;border-radius:10px;background:var(--orange-soft);color:var(--orange-text);font-weight:800}
 
-/* 成功页 */
-.done{text-align:center;padding:40px 6px}
-.done .check{width:64px;height:64px;border-radius:50%;background:#e7f4ec;color:var(--ok);font-size:32px;line-height:64px;margin:0 auto 18px}
-.done h2{font-size:22px;margin:0 0 10px}
-.done p{font-size:15px;color:var(--ink-soft);line-height:1.8;margin:0 0 6px}
+/* 内容区 */
+.contents{display:flex;flex-wrap:wrap;align-items:center;gap:10px 26px;margin-top:54px;padding:19px 24px;border-radius:12px;background:#eeefeb;font-size:13px}
+.contents span{font-weight:800;color:var(--muted)}
+.contents a{text-decoration:underline;text-underline-offset:4px}
+.content-section{padding-block:116px;scroll-margin-top:20px}
+.section-heading{max-width:780px;margin-bottom:54px}
+.section-heading h2,.bottom-cta h2{margin-top:12px;font-size:clamp(32px,4vw,46px);line-height:1.22;letter-spacing:-.04em}
+.section-heading>p{margin-top:18px;font-size:17px;line-height:1.8;color:var(--muted)}
+.two-column{display:grid;grid-template-columns:1.1fr .9fr;gap:80px}
+.article-copy{font-size:16px;line-height:2;color:#445166}
+.article-copy p+p{margin-top:16px}
+blockquote{margin-top:32px;padding:20px 22px;border-left:4px solid var(--orange);border-radius:0 10px 10px 0;background:var(--orange-soft);color:var(--ink);line-height:1.9}
+.dimensions-card{padding:30px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:10px 10px 0 #e8e9e4}
+.dimensions-card h3{margin-bottom:24px;font-size:18px}
+.dimension{display:flex;gap:16px;padding:20px 0;border-top:1px solid var(--line)}
+.dimension>span{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:11px;background:var(--orange-soft);color:var(--orange)}
+.dimension .ico{width:22px;height:22px}
+.dimension strong{font-size:15px}
+.dimension p{margin-top:6px;font-size:13px;line-height:1.7;color:var(--muted)}
 
-footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);line-height:1.8}
-  /* SEO 内容区 */
-  .seo{margin-top:52px}
-  .seo h2{font-size:20px;margin:36px 0 12px;letter-spacing:.5px}
-  .seo h3{font-size:16px;margin:20px 0 8px}
-  .seo p{font-size:15px;color:var(--ink-soft);line-height:1.85;margin:0 0 12px}
-  .seo p b,.seo li b{color:var(--ink)}
-  .seo ul{margin:0 0 12px;padding-left:20px;font-size:15px;color:var(--ink-soft);line-height:1.85}
-  .seo li{margin-bottom:6px}
-  details.faq-item{border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:10px}
-  details.faq-item summary{padding:15px 16px;font-size:15px;font-weight:700;cursor:pointer;list-style:none}
-  details.faq-item summary::-webkit-details-marker{display:none}
-  details.faq-item .a{padding:0 16px 16px;font-size:14px;color:var(--ink-soft);line-height:1.85}
-  .seo ol{margin:0 0 12px;padding-left:22px;font-size:15px;color:var(--ink-soft);line-height:1.85}
-  .seo-cta{display:inline-block;margin:6px 0 4px;color:var(--accent-dark);font-weight:700;background:none;border:none;padding:0;font-size:15px;cursor:pointer}
-  .toc{font-size:13px;color:var(--muted);line-height:2;margin:0 0 8px}
-  .toc a{color:var(--ink-soft);margin-right:14px;text-decoration:none;border-bottom:1px dotted var(--muted)}
+.levels-section{padding:110px 0;background:var(--navy);color:#fff}
+.levels-section .eyebrow,.bottom-cta .eyebrow{color:var(--lime)}
+.levels{display:grid;grid-template-columns:repeat(4,1fr)}
+.level-card{position:relative;min-height:320px;padding:28px;border:1px solid #ffffff2e;border-right:0}
+.level-card:first-child{border-radius:16px 0 0 16px}
+.level-card:last-child{border-right:1px solid #ffffff2e;border-radius:0 16px 16px 0}
+.level-card:hover{background:#ffffff0d}
+.level-number{font-size:72px;font-weight:900;line-height:1;color:#ffffff14}
+.level-card>span{display:inline-block;margin:10px 0 22px;padding:5px 9px;border-radius:99px;background:#c8f45a1a;font-size:11px;color:var(--lime)}
+.level-card h3{font-size:27px;color:var(--lime)}
+.level-card strong{display:block;margin-top:8px}
+.level-card p{margin-top:14px;font-size:14px;line-height:1.8;color:#b7c2cd}
+.center-action{display:flex;flex-direction:column;align-items:center;gap:19px;margin-top:48px}
+.center-action small{color:#8fa0b0}
 
-/* 交互状态：桌面 hover + 键盘焦点 */
-@media (hover:hover){
-  .btn:hover{background:var(--accent-dark)}
-  .btn.ghost:hover{background:var(--bg)}
-  .opt:hover{border-color:var(--accent)}
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.step{display:flex;gap:22px;min-height:170px;padding:26px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.step>span{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:50%;background:var(--orange);color:#fff;font-weight:900}
+.step h3{margin:6px 0 9px}
+.step p{font-size:14px;line-height:1.8;color:var(--muted)}
+.callout{display:flex;align-items:start;gap:17px;margin-top:24px;padding:24px 28px;border-radius:14px;background:var(--navy)}
+.callout .ico{width:24px;height:24px;color:var(--lime)}
+.callout p{line-height:1.8;color:#c8d0d8}
+.callout strong{color:#fff}
+
+.training-section{padding:110px 0;background:#eeefeb;scroll-margin-top:20px}
+.training-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px}
+.training-primary{padding:38px;border-radius:18px;background:var(--orange-dark);color:#fff}
+.training-primary h3{font-size:24px}
+.training-primary ol{margin-top:30px}
+.training-primary li{display:flex;gap:18px;padding:22px 0;border-top:1px solid #ffffff40}
+.training-primary li>span{flex:none;width:24px;font-weight:900;opacity:.7}
+.training-primary strong{font-size:16px}
+.training-primary p{margin-top:7px;font-size:14px;line-height:1.7;opacity:.92}
+.faq-stack{display:grid;gap:14px}
+.faq-stack article{padding:24px 26px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.faq-stack h3{margin-bottom:8px;font-size:17px}
+.faq-stack p{font-size:14px;line-height:1.8;color:var(--muted)}
+
+.industry-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.industry-grid article{padding:35px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.industry-grid article:first-child{box-shadow:inset 0 5px 0 var(--orange)}
+.industry-grid article:last-child{box-shadow:inset 0 5px 0 var(--lime)}
+.industry-grid span{font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--orange-text)}
+.industry-grid h3{margin:10px 0 12px;font-size:23px}
+.industry-grid p{line-height:1.9;color:var(--muted)}
+
+.faq-section{padding-top:0}
+.faq-list{display:grid;gap:12px;max-width:880px}
+.faq-item{border:1px solid var(--line);border-radius:14px;background:#fff}
+.faq-item summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;font-size:16px;font-weight:800;cursor:pointer;list-style:none}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:var(--orange-soft);color:var(--orange-text);font-size:18px;transition:transform .2s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item .a{padding:0 24px 22px;font-size:15px;line-height:1.9;color:#445166}
+
+.bottom-cta{padding:86px 0;background:var(--navy);color:#fff}
+.bottom-cta .shell{display:flex;justify-content:space-between;align-items:end;gap:40px}
+.bottom-cta p{margin-top:16px;text-align:center;font-size:12px;color:#93a2b0}
+footer{display:flex;justify-content:space-between;align-items:center;gap:30px;min-height:150px;font-size:12px;line-height:1.8;color:var(--muted)}
+footer p{max-width:560px}
+
+@media (max-width:900px){
+.shell{width:min(100% - 32px,680px)}
+.hero{padding-top:48px}
+.hero-layout,.two-column,.training-grid{grid-template-columns:1fr}
+.hero-layout{gap:60px}
+.hero h1{font-size:46px}
+.score-card{width:calc(100% - 16px);max-width:520px;margin:auto}
+.stats{grid-template-columns:repeat(3,1fr)}
+.stats p{grid-column:1/-1;padding:15px}
+.levels{grid-template-columns:repeat(2,1fr);gap:12px}
+.level-card,.level-card:first-child,.level-card:last-child{border:1px solid #ffffff2e;border-radius:12px;min-height:280px}
+.content-section,.training-section,.levels-section{padding-block:84px}
+.cta-box{grid-template-columns:1fr}
 }
-:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-.field input:focus,.field select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
-.btn:disabled{opacity:.6;cursor:default}
+@media (max-width:620px){
+.shell{width:calc(100% - 28px)}
+.nav{height:66px}
+.nav-meta span{display:none}
+.hero h1{font-size:36px}
+.desktop-break{display:none}
+.hero-lead{font-size:16px}
+.hero-actions{flex-direction:column;align-items:stretch}
+.hero-actions .button{width:100%}
+.hero-actions>span{justify-content:center}
+.score-card{min-height:400px;padding:22px;box-shadow:10px 10px 0 var(--lime)}
+.radar{width:260px;height:270px}
+.ring-one{width:200px;height:200px}.ring-two{width:140px;height:140px}
+.stats{margin-top:64px}
+.stats>div{flex-direction:column;align-items:center;gap:4px;padding:20px 5px}
+.stats strong{font-size:24px}
+.stats span{font-size:11px}
+.contents{margin-top:32px;line-height:1.8}
+.quiz-section{padding:36px 0}
+.card{padding:28px 20px;box-shadow:8px 8px 0 var(--lime)}
+.card h2.q-title,.form-head h2{font-size:22px}
+.result-head h2{font-size:42px}
+.form-grid{grid-template-columns:1fr}
+.section-heading{margin-bottom:36px}
+.section-heading h2,.bottom-cta h2{font-size:30px}
+.two-column{gap:36px}
+.dimensions-card{padding:22px}
+.levels{grid-template-columns:1fr}
+.level-card,.level-card:first-child,.level-card:last-child{min-height:auto}
+.level-number{font-size:50px}
+.steps,.industry-grid{grid-template-columns:1fr}
+.step{min-height:auto;padding:22px}
+.training-primary{padding:28px 22px}
+.bottom-cta .shell{flex-direction:column;align-items:stretch}
+.bottom-cta .button{width:100%}
+footer{flex-direction:column;align-items:start;padding:35px 0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<div class="wrap">
+<!-- 图标 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3Z"/><path d="m18.5 15 .8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2Z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+<symbol id="i-trend" viewBox="0 0 24 24"><path d="M4 17 10 11l4 4 6-8"/><path d="M15 7h5v5"/></symbol>
+<symbol id="i-team" viewBox="0 0 24 24"><path d="M16 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M17 4.5a4 4 0 0 1 0 7.5M21 20v-2a4 4 0 0 0-3-3.8"/></symbol>
+<symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="3"/><path d="M16 12h5M3 9h14"/></symbol>
+</svg>
 
-<div class="topbar">
-<div class="brand">企业 AI 转型<span>成熟度测评</span></div>
-<div class="tag">免费 · 约3分钟</div>
-</div>
+<header class="nav shell">
+<a class="brand" href="#top" aria-label="企业AI转型测评首页"><span class="brand-mark"><svg class="ico"><use href="#i-spark"/></svg></span><span>企业 AI 转型<span>测评</span></span></a>
+<div class="nav-meta"><svg class="ico"><use href="#i-clock"/></svg><span>免费 · 约 3 分钟</span></div>
+</header>
 
+<main>
 <!-- ============ 首屏 ============ -->
-<section id="s-hero" class="hero">
-<span class="eyebrow">中小企业AI落地 · 免费自测</span>
-<h1>企业AI转型测评：<em>3 分钟测测你们公司 AI 用得怎么样</em></h1>
-<p class="lede">多数企业的 AI 还停留在"有人偶尔用用"的阶段。<b>8 道题，3 分钟</b>，看看你们处在哪个阶段、卡点在哪、下一步该往哪使劲。报告当场生成。</p>
-<button class="btn" onclick="App.start()">开始免费测评</button>
-<div class="facts">
-<div class="fact"><b>8</b><span>道精选题目</span></div>
-<div class="fact"><b>3</b><span>个评估维度</span></div>
-<div class="fact"><b>4</b><span>档成熟度诊断</span></div>
+<section class="hero" id="top">
+<div class="hero-grid"></div>
+<div class="shell hero-layout">
+<div class="hero-copy">
+<div class="badge"><i></i>中小企业AI落地 · 免费自测</div>
+<h1>企业AI转型测评：<br><em>3 分钟测测你们公司<br class="desktop-break"> AI 用得怎么样</em></h1>
+<p class="hero-lead">多数企业的 AI 还停留在"有人偶尔用用"的阶段。<b>8 道题、3 分钟</b>，看看你们处在哪个阶段、卡点在哪、下一步该往哪使劲。报告当场生成。</p>
+<div class="hero-actions">
+<button type="button" class="button" data-start>开始免费测评<svg class="ico"><use href="#i-arrow"/></svg></button>
+<span><svg class="ico"><use href="#i-check"/></svg>无需注册，报告当场生成</span>
 </div>
-<p class="micro">无需注册 · 报告当场生成 · 你的作答仅用于生成本次诊断</p>
+</div>
+<div class="score-card" aria-hidden="true">
+<div class="score-top"><span>AI MATURITY</span><svg class="ico"><use href="#i-spark"/></svg></div>
+<div class="radar">
+<div class="radar-ring ring-one"></div><div class="radar-ring ring-two"></div><div class="radar-ring ring-three"></div>
+<div class="radar-shape"></div>
+<span class="radar-label label-one">工具落地</span><span class="radar-label label-two">人员组织</span><span class="radar-label label-three">投入规划</span>
+<div class="radar-center">AI</div>
+</div>
+<div class="score-note"><span>成熟度诊断</span><strong>找到增长的最短板</strong></div>
+</div>
+</div>
+<div class="shell stats">
+<div><strong>8</strong><span>道精选题目</span></div>
+<div><strong>3</strong><span>个评估维度</span></div>
+<div><strong>4</strong><span>档成熟度诊断</span></div>
+<p>你的作答仅用于生成本次诊断</p>
+</div>
 </section>
 
-<!-- ============ 答题 ============ -->
-<section id="s-quiz" class="hidden quiz-head">
-<p class="qcount" id="q-count"></p>
-<div class="bar" role="progressbar" aria-label="答题进度" aria-valuemin="0" aria-valuemax="8" id="q-progress"><div id="q-bar"></div></div>
-<h2 class="q-title" id="q-title"></h2>
-<p class="q-dim" id="q-dim"></p>
-<div id="q-opts"></div>
-<div class="nav"><button class="btn ghost" id="btn-prev" onclick="App.prev()">上一题</button></div>
-</section>
+<!-- ============ 测评区（点"开始"后出现） ============ -->
+<section class="quiz-section hidden" id="assessment" aria-live="polite">
+<div class="shell">
 
-<!-- ============ 报告 ============ -->
-<section id="s-report" class="hidden">
-<div class="report">
-<div class="r-label">你的企业 AI 成熟度诊断</div>
-<div class="r-score"><b id="r-score">0</b> <small>/ 21 分</small></div>
-<div><span class="tier" id="r-tier"></span></div>
+<!-- 答题 -->
+<div class="card" id="s-quiz">
+<div class="quiz-progress-row"><span>企业AI转型测评</span><strong id="q-count"></strong></div>
+<div class="quiz-progress" role="progressbar" aria-label="答题进度" aria-valuemin="1" aria-valuemax="8" id="q-progress"><span id="q-bar"></span></div>
+<span class="quiz-dimension" id="q-dim"></span>
+<h2 class="q-title" id="q-title" tabindex="-1"></h2>
+<div class="quiz-options" id="q-opts"></div>
+<button type="button" class="back-button" id="btn-prev">← 返回上一题</button>
+</div>
+
+<!-- 报告 -->
+<div class="card hidden" id="s-report">
+<div class="result-head">
+<div class="result-badge"><svg class="ico"><use href="#i-spark"/></svg>诊断报告已生成</div>
+<p>你们公司的 AI 转型成熟度处于</p>
+<h2 id="r-tier" tabindex="-1"></h2>
+<div class="result-score"><strong id="r-score">0</strong> <span>/ 21 分</span></div>
 <p class="verdict" id="r-verdict"></p>
-
+</div>
 <div class="sec-t">三个维度得分</div>
 <div id="r-dims"></div>
-
 <div class="sec-t">给你的行动建议</div>
-<ul class="diag" id="r-diag"></ul>
-
+<ol class="diag" id="r-diag"></ol>
 <div class="cta-box">
-<p>上面是<b>精简版诊断</b>。完整版《AI 转型落地路线图》会结合你的得分和行业，给出 <b>90 天行动清单</b>。留下联系方式，<b>免费领取</b>完整版报告，并预约一次 <b>30 分钟一对一诊断</b>（帮你看看钱该花在哪）。</p>
-<button class="btn" onclick="App.toForm()">免费领取完整版报告</button>
+<p><strong>这是精简版诊断</strong>完整版《AI 转型落地路线图》会结合你的得分和行业，给出 <b>90 天行动清单</b>，并可预约一次 <b>30 分钟一对一诊断</b>，帮你看看钱该花在哪。</p>
+<button type="button" class="button" id="btn-to-form">免费领取完整版<svg class="ico"><use href="#i-arrow"/></svg></button>
 </div>
+<button type="button" class="retry" data-start>重新测一次</button>
 </div>
-</section>
 
-<!-- ============ 留资 ============ -->
-<section id="s-form" class="hidden">
-<div class="report">
-<div class="r-label">领取完整版报告</div>
-<h2 class="q-title" style="margin-bottom:6px">免费领取《AI 转型落地路线图》</h2>
-<p class="q-dim">提交后 24 小时内，我们会把完整版报告发送到你的手机或微信，请留意。</p>
-<form id="lead-form" onsubmit="return App.submit(event)" novalidate>
+<!-- 留资 -->
+<div class="card hidden" id="s-form">
+<div class="form-head">
+<span class="eyebrow">领取完整版报告</span>
+<h2 tabindex="-1" id="form-title">免费领取《AI 转型落地路线图》</h2>
+<p>提交后 24 小时内，我们会把完整版报告发送到你的手机或微信，请留意。</p>
+</div>
+<form id="lead-form" novalidate>
+<div class="form-grid">
 <div class="field"><label for="f-name">姓名</label><input id="f-name" autocomplete="name" placeholder="怎么称呼您"></div>
 <div class="field"><label for="f-company">公司名称</label><input id="f-company" autocomplete="organization" placeholder="公司全称"></div>
 <div class="field"><label for="f-title">你的职位</label>
-<select id="f-title">
-<option value="">请选择</option>
-<option>董事长 / 创始人</option><option>总经理 / CEO</option>
-<option>副总 / VP</option><option>总监</option>
-<option>经理</option><option>其他</option>
-</select>
-</div>
+<select id="f-title"><option value="">请选择</option><option>董事长 / 创始人</option><option>总经理 / CEO</option><option>副总 / VP</option><option>总监</option><option>经理</option><option>其他</option></select></div>
 <div class="field"><label for="f-size">公司规模</label>
-<select id="f-size">
-<option value="">请选择</option>
-<option>20人以下</option><option>20–100人</option>
-<option>100–500人</option><option>500人以上</option>
-</select>
-</div>
+<select id="f-size"><option value="">请选择</option><option>20人以下</option><option>20–100人</option><option>100–500人</option><option>500人以上</option></select></div>
 <div class="field"><label for="f-phone">手机号码</label><input id="f-phone" type="tel" inputmode="numeric" maxlength="11" autocomplete="tel" placeholder="11 位手机号，用于接收报告"></div>
-<div class="field"><label for="f-wechat">微信号 <i>（选填）</i></label><input id="f-wechat" placeholder="微信号，方便发送报告"></div>
+<div class="field"><label for="f-wechat">微信号 <i>（选填）</i></label><input id="f-wechat" placeholder="方便发送报告"></div>
+</div>
 <!-- 蜜罐：正常用户看不见，机器人会填 -->
-<div class="hp" aria-hidden="true"><input id="f-website" name="website" tabindex="-1" autocomplete="off" placeholder="请留空"></div>
-<label class="consent">
-<input type="checkbox" id="f-consent">
-<span id="consent-text"></span>
-</label>
-<p class="err" id="f-err" role="alert" aria-live="polite"></p>
-<button class="btn" type="submit" id="btn-submit">提交，领取完整报告</button>
+<div class="hp" aria-hidden="true"><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
+<label class="consent"><input type="checkbox" id="f-consent"><span id="consent-text"></span></label>
+<p class="err" id="f-err" role="alert"></p>
+<button class="button block" type="submit" id="btn-submit">提交，领取完整报告</button>
 </form>
+<button type="button" class="retry" id="btn-back-report">← 返回诊断报告</button>
 </div>
-</section>
 
-<!-- ============ 成功 ============ -->
-<section id="s-done" class="hidden">
+<!-- 成功 -->
+<div class="card hidden" id="s-done">
 <div class="done">
-<div class="check">✓</div>
-<h2>提交成功</h2>
-<p>完整版《AI 转型落地路线图》将在 24 小时内<br>发送到你的手机或微信，请留意查收。</p>
-<p style="margin-top:14px" id="done-wechat">如需更快沟通，可直接添加我们的工作人员微信。</p>
+<div class="check"><svg class="ico"><use href="#i-check"/></svg></div>
+<h2 tabindex="-1" id="done-title">提交成功</h2>
+<p>完整版《AI 转型落地路线图》将在 24 小时内发送到你的手机或微信，请留意查收。</p>
+<p class="wx hidden" id="done-wechat"></p>
+</div>
+</div>
+
 </div>
 </section>
 
-  <!-- ============ SEO 内容区（漏斗下方，不影响转化流程） ============ -->
-  <section class="seo" id="guide">
-    <p class="toc">本页内容：<a href="#what">什么是AI转型成熟度</a><a href="#steps">企业AI转型指南</a><a href="#training">企业AI培训怎么选</a><a href="#industry">制造业AI转型</a><a href="#faq">常见问题</a></p>
+<nav class="contents shell" aria-label="本页内容"><span>本页内容</span><a href="#maturity">什么是AI转型成熟度</a><a href="#guide">企业AI转型指南</a><a href="#training">企业AI培训怎么选</a><a href="#manufacturing">制造业AI转型</a><a href="#faq">常见问题</a></nav>
 
-    <h2 id="what">什么是企业AI转型成熟度？</h2>
-    <p>企业 AI 转型成熟度，衡量的是企业把 AI 真正用起来、用出业务价值的能力处在哪个阶段。从"偶尔有人用用"到"AI 嵌进业务流程"，中间要经过工具、组织、投入等多个维度的协同。2025 年外滩大会上发布的业界首个企业应用 AI 成熟度模型（AIM²），把这一过程划分为从"单点试验"到"AI 原生"的进阶等级，围绕战略、组织、数据、技术、应用、商业六个维度评估。</p>
-    <p>现实是，多数企业还卡在早期。据 Google 联合 Hypothesis Group 的调研报道，<b>仅 3% 的组织完成了真正的 AI 转型</b>，72% 仍处于早期阶段。本测评把复杂的成熟度框架浓缩成 8 道题，3 分钟帮你定位所处阶段、找到最短的那块板。</p>
-
-    <h3>三个评估维度</h3>
-    <ul>
-      <li><b>工具落地</b>：AI 有没有真正嵌进业务流程、用出效果，还是停留在"有人偶尔用用"。</li>
-      <li><b>人员组织</b>：有没有人在牵头推这件事，团队学新工具的速度跟不跟得上。</li>
-      <li><b>投入规划</b>：在数字化上有没有持续投入，未来半年有没有明确的 AI 预算和推进节奏。</li>
-    </ul>
-
-    <h3>四档成熟度解读</h3>
-    <ul>
-      <li><b>观望期</b>：还在门口看。这个阶段每往前走一步效果都最明显：先选一个高频、痛苦的场景做试点。</li>
-      <li><b>起步期</b>：已经尝到甜头，但靠几个积极分子撑着。下一步是把零散用法沉淀成流程、指定正式负责人。</li>
-      <li><b>加速期</b>：跑得比大多数公司快，瓶颈转向管理和协同。最值得投的是内部培训＋流程改造。</li>
-      <li><b>领先期</b>：已经跑在前列。课题变成怎么把 AI 变成护城河：往客户侧和供应链延伸，沉淀数据资产。</li>
-    </ul>
-    <button type="button" class="seo-cta" onclick="App.start()">→ 测测你们在哪一档（免费，3 分钟）</button>
-
-    <h2 id="steps">企业AI转型指南：中小企业AI如何落地</h2>
-    <p>很多老板问"AI 到底怎么落地"。我们看到跑得通的公司，大多走的是同一条路：</p>
-    <ol>
-      <li><b>先诊断</b>：搞清楚自己在哪个阶段、短板是工具、人还是钱。上面的测评就是做这一步。</li>
-      <li><b>选一个场景试点</b>：挑重复性高、规则清晰、数据现成的环节，比如智能客服、营销文案、报表、会议纪要、质检。</li>
-      <li><b>定一个负责人</b>：业务骨干比技术岗更合适，每周固定推进、记录效果。</li>
-      <li><b>跑通再复制</b>：一个场景算清账、形成标准动作后，再推到其他部门，并配套内部培训。</li>
-    </ol>
-    <p>AI 落地应用不一定要自建平台。对多数中小企业来说，成熟的 SaaS 工具加上一套用法规范，就是性价比最高的企业 AI 解决方案；等场景多了、数据量上来了，再考虑搭建企业自己的 AI 平台。</p>
-
-    <h2 id="training">企业AI培训怎么选：课程、讲师、培训公司</h2>
-    <p>测评只能定位问题，真要补短板，很多公司会考虑请外部机构做<b>企业AI培训</b>或落地陪跑。市面上的企业AI培训课程、讲师和培训公司差别很大，选之前先看三条：</p>
-    <ul>
-      <li><b>看讲师有没有产业经验</b>：讲过课和下过场是两回事，优先选带过企业真实落地项目的企业AI培训讲师。</li>
-      <li><b>看课程更新频率</b>：AI 工具迭代快，课程超过一个季度没更新就要打个问号。</li>
-      <li><b>看收费跟场景挂不挂钩</b>：只卖课时、不管你哪个场景落地的要谨慎；敢按场景、按效果谈的更靠谱。</li>
-    </ul>
-
-    <h3>企业AI培训课程一般教什么？</h3>
-    <p>靠谱的企业AI培训课程通常分三层：<b>全员通识</b>（常用 AI 工具怎么用、哪些数据不能往外传）、<b>岗位实战</b>（销售、客服、运营、财务各自的提效用法）、<b>管理层规划</b>（怎么选场景、怎么算投入产出、怎么定制度）。只讲概念、不带练习和作业的课，回去基本用不起来。</p>
-
-    <h3>企业内部AI培训，还是请外部培训公司？</h3>
-    <p>公司里已经有人用得好，优先做 AI 企业内部培训：成本低、贴合业务。没人懂、或者需要跨部门推动，请外部讲师或培训公司带一轮更快。常见做法是外部讲师带第一轮，内部骨干接手做持续分享。</p>
-
-    <h3>企业AI培训一般多少钱？</h3>
-    <p>据行业报道，大型集团定制工作坊预算通常在 25 万元以上，中小企业标准化方案一般在 5 万元以下；面向个人的 AI 培训班学费又是另一个价位，不要拿来直接比。先拿测评报告明确自己的短板再去谈，钱才花得值。</p>
-    <button type="button" class="seo-cta" onclick="App.start()">→ 先测一测，再决定要不要请人培训</button>
-
-    <h2 id="industry">传统企业与制造业AI转型</h2>
-    <p>工厂 AI 化转型见效最快的切口通常是质检（AI 视觉检测）、预测性维护和排产优化，多为开箱即用的场景化方案，不一定需要自建算法团队。贸易、零售、服务业等传统企业，则更适合从客服、营销内容、订单与报表处理这些办公环节先切入。</p>
-
-    <h2 id="faq">常见问题</h2>
-    <details class="faq-item"><summary>这个企业AI转型测评是免费的吗？</summary><div class="a">是，完全免费。8 道题约 3 分钟，报告当场生成。留下联系方式还可免费领取完整版《AI 转型落地路线图》。</div></details>
-    <details class="faq-item"><summary>中小企业适合做AI转型吗？</summary><div class="a">适合，而且中小企业有决策快、包袱小的优势。关键是别贪大，从一个高频、痛苦的场景先试点（比如客服、文案、报表），跑通再复制。</div></details>
-    <details class="faq-item"><summary>AI能帮中小企业做什么？</summary><div class="a">最常见的三类：降本（智能客服、自动化报表）、增效（营销文案、会议纪要、质检）、增收（线索跟进、内容获客）。建议从重复性最高的环节先试点，跑通再复制。</div></details>
-    <details class="faq-item"><summary>AI转型一般先从哪个场景开始？</summary><div class="a">优先选重复性高、规则清晰、数据现成的环节：智能客服、营销文案、会议纪要、报表整理、质检等。投入小、见效快，也最容易让团队建立信心。</div></details>
-    <details class="faq-item"><summary>企业AI培训机构哪家好、怎么选？</summary><div class="a">没有统一的排名，关键看三点：讲师有没有带过企业真实落地项目、课程更新频率够不够快、收费是否跟你的业务场景挂钩。警惕“包学会、包增效”之类的过度承诺。</div></details>
-    <details class="faq-item"><summary>企业AI培训一般多少钱？</summary><div class="a">差异很大。据行业报道，大型集团的定制工作坊预算通常在 25 万元以上，中小企业的标准化方案一般在 5 万元以下，具体以机构报价为准。建议先明确短板和场景再谈，避免为用不上的内容付费。</div></details>
-    <details class="faq-item"><summary>企业内部AI培训和请外部培训公司，怎么选？</summary><div class="a">公司里已有人用得好，优先内部培训：成本低、贴合业务。没人懂、或需要跨部门推动，请外部讲师或培训公司带一轮更快。常见做法是外部讲师带第一轮，内部骨干接手做持续分享。</div></details>
-    <details class="faq-item"><summary>企业AI转型顾问是做什么的？</summary><div class="a">帮企业做 AI 现状诊断、场景规划、员工培训和落地陪跑的外部专家或机构。这个测评就是一次轻量的自助诊断；如果测出来短板明显，再考虑请顾问做深度规划。</div></details>
-    <details class="faq-item"><summary>传统制造企业怎么做AI转型？</summary><div class="a">制造业见效最快的切口通常是质检（AI 视觉检测）、预测性维护和排产优化，多为开箱即用的场景化方案，不一定需要自建算法团队。</div></details>
-    <details class="faq-item"><summary>测评结果准确吗？</summary><div class="a">测评基于工具落地、人员组织、投入规划三个维度，结果供参考。它最大的价值是帮你快速定位短板、明确下一步优先级，而不是给精确分数。如需深度诊断，可以预约一次一对一沟通。</div></details>
-  </section>
-
-<footer>
-本测评基于"工具落地 × 人员组织 × 投入规划"三个维度，结果仅供参考，不构成任何经营承诺。<br>
-我们重视你的个人信息：你提交的信息仅用于发送本次诊断报告及后续企业 AI 咨询服务，可随时要求删除。
-</footer>
+<section class="content-section shell" id="maturity">
+<div class="section-heading"><span class="eyebrow">01 · 先看清位置</span><h2>什么是企业AI转型成熟度？</h2><p>不是工具用得越多，AI 转型就越成熟。真正的成熟，是 AI 能稳定进入业务流程，并持续创造可衡量的价值。</p></div>
+<div class="two-column">
+<div class="article-copy">
+<p>企业 AI 转型成熟度，衡量的是企业把 AI 真正用起来、用出业务价值的能力处在哪个阶段。从"偶尔有人用用"到"AI 嵌进业务流程"，中间要经过工具、组织、投入等多个维度的协同。</p>
+<p>2025 年外滩大会上发布的业界首个企业应用 AI 成熟度模型（AIM²），把这一过程划分为从"单点试验"到"AI 原生"的进阶等级，围绕战略、组织、数据、技术、应用、商业六个维度评估。本测评参考了这类框架的思路，针对中小企业简化成 8 道题。</p>
+<blockquote><strong>现实是，多数企业还卡在早期。</strong>据 Google 联合 Hypothesis Group 的调研报道，仅 3% 的组织完成了真正的 AI 转型，72% 仍处于早期阶段。</blockquote>
 </div>
+<div class="dimensions-card">
+<h3>本测评关注三个关键维度</h3>
+<div class="dimension"><span><svg class="ico"><use href="#i-trend"/></svg></span><div><strong>工具落地</strong><p>AI 有没有真正嵌进业务流程、用出效果，而不是停留在偶尔用用。</p></div></div>
+<div class="dimension"><span><svg class="ico"><use href="#i-team"/></svg></span><div><strong>人员组织</strong><p>有没有人牵头推动，团队学习和复制新工具的速度够不够快。</p></div></div>
+<div class="dimension"><span><svg class="ico"><use href="#i-wallet"/></svg></span><div><strong>投入规划</strong><p>有没有持续数字化投入，以及未来半年的 AI 预算和推进节奏。</p></div></div>
+</div>
+</div>
+</section>
 
+<section class="levels-section">
+<div class="shell">
+<div class="section-heading"><span class="eyebrow">02 · 四档诊断</span><h2>你们公司，走到哪一步了？</h2></div>
+<div class="levels">
+<article class="level-card"><div class="level-number">01</div><span>7–10 分</span><h3>观望期</h3><strong>还在门口看</strong><p>每往前走一步效果都最明显。先选一个高频、痛苦、容易算清价值的场景做试点。</p></article>
+<article class="level-card"><div class="level-number">02</div><span>11–14 分</span><h3>起步期</h3><strong>已经尝到甜头</strong><p>靠几个积极分子撑着。把零散用法沉淀成流程，并指定一位正式负责人。</p></article>
+<article class="level-card"><div class="level-number">03</div><span>15–17 分</span><h3>加速期</h3><strong>跑得比多数公司快</strong><p>瓶颈转向管理和协同。投入重点放在内部培训、流程改造和跨部门复制。</p></article>
+<article class="level-card"><div class="level-number">04</div><span>18–21 分</span><h3>领先期</h3><strong>已经跑在前列</strong><p>向客户侧和供应链延伸，把数据资产和行业经验变成护城河。</p></article>
+</div>
+<div class="center-action"><button type="button" class="button" data-start>测测你们在哪一档<svg class="ico"><use href="#i-arrow"/></svg></button><small>免费 · 3 分钟 · 无需注册</small></div>
+</div>
+</section>
+
+<section class="content-section shell" id="guide">
+<div class="section-heading"><span class="eyebrow">03 · 落地路线</span><h2>企业AI转型指南：中小企业AI如何落地</h2><p>很多老板问"AI 到底怎么落地"。我们看到跑得通的公司，大多走的是同一条路。</p></div>
+<div class="steps">
+<article class="step"><span>1</span><div><h3>先诊断</h3><p>搞清楚自己在哪个阶段，短板是工具、人还是投入。上面的测评就是做这一步。</p></div></article>
+<article class="step"><span>2</span><div><h3>选一个场景试点</h3><p>挑重复性高、规则清晰、数据现成的环节，比如智能客服、营销文案、报表、会议纪要或质检。</p></div></article>
+<article class="step"><span>3</span><div><h3>定一个负责人</h3><p>业务骨干通常比纯技术岗更合适，每周固定推进并记录效果。</p></div></article>
+<article class="step"><span>4</span><div><h3>跑通再复制</h3><p>一个场景算清账、形成标准动作后，再推到其他部门，并配套内部培训。</p></div></article>
+</div>
+<div class="callout"><svg class="ico"><use href="#i-spark"/></svg><p><strong>别急着自建平台。</strong>AI 落地应用不一定要自建平台。对多数中小企业来说，成熟的 SaaS 工具加一套用法规范，就是性价比最高的企业 AI 解决方案；等场景多了、数据量上来了，再考虑搭建企业自己的 AI 平台。</p></div>
+</section>
+
+<section class="training-section" id="training">
+<div class="shell">
+<div class="section-heading"><span class="eyebrow">04 · 补齐短板</span><h2>企业AI培训怎么选：课程、讲师、培训公司</h2><p>测评只能定位问题，真要补短板，很多公司会考虑请外部机构做企业AI培训或落地陪跑。市面上的企业AI培训课程、讲师和培训公司差别很大。</p></div>
+<div class="training-grid">
+<div class="training-primary">
+<h3>选企业AI培训，先看三条</h3>
+<ol>
+<li><span>01</span><div><strong>看讲师有没有产业经验</strong><p>讲过课和下过场是两回事，优先选带过企业真实落地项目的企业AI培训讲师。</p></div></li>
+<li><span>02</span><div><strong>看课程更新频率</strong><p>AI 工具迭代快，课程超过一个季度没更新就要打个问号。</p></div></li>
+<li><span>03</span><div><strong>看收费跟场景挂不挂钩</strong><p>只卖课时、不管你哪个场景落地的要谨慎；敢按场景、按效果谈的更靠谱。</p></div></li>
+</ol>
+</div>
+<div class="faq-stack">
+<article><h3>企业AI培训课程一般教什么？</h3><p>靠谱的课程通常分三层：全员通识（常用 AI 工具怎么用、哪些数据不能外传）、岗位实战（销售、客服、运营、财务各自的提效用法）、管理层规划（怎么选场景、算投入产出、定制度）。只讲概念、不带练习的课，回去基本用不起来。</p></article>
+<article><h3>企业内部AI培训，还是请外部培训公司？</h3><p>公司里已经有人用得好，优先做 AI 企业内部培训：成本低、贴合业务。没人懂、或需要跨部门推动，请外部讲师带第一轮，内部骨干接手做持续分享。</p></article>
+<article><h3>企业AI培训一般多少钱？</h3><p>据行业报道，大型集团定制工作坊通常在 25 万元以上，中小企业标准化方案一般在 5 万元以下；面向个人的 AI 培训班学费是另一个价位，不要直接比。先拿测评报告明确短板再谈，钱才花得值。</p></article>
+</div>
+</div>
+<div class="center-action"><button type="button" class="button" data-start>先测一测，再决定要不要请人培训<svg class="ico"><use href="#i-arrow"/></svg></button></div>
+</div>
+</section>
+
+<section class="content-section shell" id="manufacturing">
+<div class="section-heading"><span class="eyebrow">05 · 行业场景</span><h2>传统企业与制造业AI转型</h2></div>
+<div class="industry-grid">
+<article><span>制造业</span><h3>从看得见的损耗切入</h3><p>工厂 AI 化转型见效最快的切口通常是质检（AI 视觉检测）、预测性维护和排产优化，多为开箱即用的场景化方案，不一定需要自建算法团队。</p></article>
+<article><span>贸易 · 零售 · 服务业</span><h3>从高频办公流程切入</h3><p>传统企业更适合从客服、营销内容、订单与报表处理等办公环节先切入。先把重复劳动交给 AI，再逐步深入核心业务。</p></article>
+</div>
+</section>
+
+<section class="content-section shell faq-section" id="faq">
+<div class="section-heading"><span class="eyebrow">06 · 常见问题</span><h2>关于企业AI转型与培训的常见问题</h2></div>
+<div class="faq-list">
+<details class="faq-item"><summary>这个企业AI转型测评是免费的吗？</summary><div class="a">是，完全免费。8 道题约 3 分钟，报告当场生成。留下联系方式还可免费领取完整版《AI 转型落地路线图》。</div></details>
+<details class="faq-item"><summary>中小企业适合做AI转型吗？</summary><div class="a">适合，而且中小企业有决策快、包袱小的优势。关键是别贪大，从一个高频、痛苦的场景先试点（比如客服、文案、报表），跑通再复制。</div></details>
+<details class="faq-item"><summary>AI能帮中小企业做什么？</summary><div class="a">最常见的三类：降本（智能客服、自动化报表）、增效（营销文案、会议纪要、质检）、增收（线索跟进、内容获客）。建议从重复性最高的环节先试点，跑通再复制。</div></details>
+<details class="faq-item"><summary>AI转型一般先从哪个场景开始？</summary><div class="a">优先选重复性高、规则清晰、数据现成的环节：智能客服、营销文案、会议纪要、报表整理、质检等。投入小、见效快，也最容易让团队建立信心。</div></details>
+<details class="faq-item"><summary>企业AI培训机构哪家好、怎么选？</summary><div class="a">没有统一的排名，关键看三点：讲师有没有带过企业真实落地项目、课程更新频率够不够快、收费是否跟你的业务场景挂钩。警惕“包学会、包增效”之类的过度承诺。</div></details>
+<details class="faq-item"><summary>企业AI培训一般多少钱？</summary><div class="a">差异很大。据行业报道，大型集团的定制工作坊预算通常在 25 万元以上，中小企业的标准化方案一般在 5 万元以下，具体以机构报价为准。建议先明确短板和场景再谈，避免为用不上的内容付费。</div></details>
+<details class="faq-item"><summary>企业内部AI培训和请外部培训公司，怎么选？</summary><div class="a">公司里已有人用得好，优先内部培训：成本低、贴合业务。没人懂、或需要跨部门推动，请外部讲师或培训公司带一轮更快。常见做法是外部讲师带第一轮，内部骨干接手做持续分享。</div></details>
+<details class="faq-item"><summary>企业AI转型顾问是做什么的？</summary><div class="a">帮企业做 AI 现状诊断、场景规划、员工培训和落地陪跑的外部专家或机构。这个测评就是一次轻量的自助诊断；如果测出来短板明显，再考虑请顾问做深度规划。</div></details>
+<details class="faq-item"><summary>传统制造企业怎么做AI转型？</summary><div class="a">制造业见效最快的切口通常是质检（AI 视觉检测）、预测性维护和排产优化，多为开箱即用的场景化方案，不一定需要自建算法团队。</div></details>
+<details class="faq-item"><summary>测评结果准确吗？</summary><div class="a">测评基于工具落地、人员组织、投入规划三个维度，结果供参考。它最大的价值是帮你快速定位短板、明确下一步优先级，而不是给精确分数。如需深度诊断，可以预约一次一对一沟通。</div></details>
+</div>
+</section>
+
+<section class="bottom-cta">
+<div class="shell">
+<div><span class="eyebrow">现在，花 3 分钟看清位置</span><h2>AI 转型，不要从买工具开始。<br>从找准问题开始。</h2></div>
+<div><button type="button" class="button" data-start>开始免费测评<svg class="ico"><use href="#i-arrow"/></svg></button><p>8 道题 · 无需注册 · 即刻生成报告</p></div>
+</div>
+</section>
+</main>
+
+<footer class="shell">
+<a class="brand" href="#top"><span class="brand-mark"><svg class="ico"><use href="#i-spark"/></svg></span><span>企业 AI 转型<span>测评</span></span></a>
+<p>本测评基于"工具落地 × 人员组织 × 投入规划"三个维度，结果仅供参考，不构成任何经营承诺。你提交的信息仅用于发送本次诊断报告及后续企业 AI 咨询服务，可随时要求删除。</p>
+<span>© 2026 企业AI转型测评</span>
+</footer>
 <script>
 "use strict";
 /* ================================================================
@@ -427,48 +638,60 @@ var DIM_TIP = {
 var App = (function(){
 var answers = new Array(QUESTIONS.length).fill(-1);
 var cur = 0, result = null;
+var STEPS = ["s-quiz","s-report","s-form","s-done"];
 
 function $(id){ return document.getElementById(id);}
+function icon(name){ return '<svg class="ico" aria-hidden="true"><use href="#i-' + name + '"/></svg>';}
+
+// 切换测评区里的卡片；fromHistory = 由浏览器返回键触发，不再写历史
 function show(id, fromHistory){
-["s-hero","s-quiz","s-report","s-form","s-done"].forEach(function(s){
-$(s).classList.toggle("hidden", s!== id);
-});
+$("assessment").classList.remove("hidden");
+STEPS.forEach(function(s){ $(s).classList.toggle("hidden", s !== id);});
 // 写入浏览器历史：手机上按"返回"回到上一步，而不是直接离开页面
-if (!fromHistory) history.pushState({ s: id}, "");
-window.scrollTo(0,0);
+if (!fromHistory) history.pushState({ s: id, q: cur}, "");
+$("assessment").scrollIntoView({ block: "start"});
+// 焦点移到新卡片标题，方便键盘和读屏用户
+var focusId = { "s-quiz": "q-title", "s-report": "r-tier", "s-form": "form-title", "s-done": "done-title"}[id];
+if (focusId) $(focusId).focus({ preventScroll: true});
+}
+function hideAssessment(){
+$("assessment").classList.add("hidden");
+$("top").scrollIntoView({ block: "start"});
 }
 window.addEventListener("popstate", function(e){
-var st = e.state || { s: "s-hero"};
-if (st.s === "s-done") return; // 已提交，不回退到表单重复提交
-if (st.s === "s-quiz") render();
-if ((st.s === "s-report" || st.s === "s-form") && !result){ st = { s: "s-hero"};}
+var st = e.state || { s: "home"};
+if (!$("s-done").classList.contains("hidden")) return; // 已提交，不回退到表单重复提交
+if (st.s === "home"){ hideAssessment(); return;}
+if ((st.s === "s-report" || st.s === "s-form") && !result) st = { s: "s-quiz", q: 0};
+if (st.s === "s-quiz"){ cur = st.q || 0; render();}
 show(st.s, true);
 });
-function start(){ cur = 0; answers.fill(-1); render(); show("s-quiz");}
+
+function start(){ cur = 0; answers.fill(-1); result = null; render(); show("s-quiz");}
 function render(){
 var q = QUESTIONS[cur];
-$("q-count").textContent = "第 " + (cur+1) + " / " + QUESTIONS.length + " 题";
+$("q-count").textContent = (cur+1) + " / " + QUESTIONS.length;
 $("q-bar").style.width = ((cur+1)/QUESTIONS.length*100) + "%";
 $("q-progress").setAttribute("aria-valuenow", cur+1);
 $("q-title").textContent = q.t;
 $("q-dim").textContent = q.scenario? "场景定位 · 不计分": ("评估维度 · " + q.dim);
 var box = $("q-opts"); box.innerHTML = "";
-var letters = ["A","B","C","D"];
 q.opts.forEach(function(opt, i){
 var b = document.createElement("button");
-b.type = "button"; b.className = "opt";
-b.innerHTML = '<span class="k">'+letters[i]+'</span><span></span>';
-b.lastChild.textContent = opt;
+b.type = "button";
+if (answers[cur] === i) b.className = "picked";
+b.innerHTML = '<span class="k">' + String.fromCharCode(65+i) + '</span><span></span>' + icon("arrow");
+b.children[1].textContent = opt;
 b.onclick = function(){ answers[cur] = i; next();};
 box.appendChild(b);
 });
-$("btn-prev").style.display = cur === 0? "none": "block";
+$("btn-prev").classList.toggle("hidden", cur === 0);
 }
 function next(){
-if (cur < QUESTIONS.length - 1){ cur++; render();}
+if (cur < QUESTIONS.length - 1){ cur++; render(); history.pushState({ s: "s-quiz", q: cur}, ""); $("q-title").focus({ preventScroll: true});}
 else { finish();}
 }
-function prev(){ if (cur > 0){ cur--; render();}}
+function prev(){ if (cur > 0) history.back();}
 
 function calc(){
 var total = 0, dims = {}, scenario = "";
@@ -478,9 +701,9 @@ if (q.scenario){ scenario = q.opts[a]; return;}
 var pts = a + 1; total += pts;
 dims[q.dim] = (dims[q.dim] || 0) + pts;
 });
-var tier = TIERS.filter(function(t){ return total >= t.min && total <= t.max;})[0];
+var tier = TIERS.filter(function(t){ return total >= t.min && total <= t.max;})[0] || TIERS[0];
 var weakest = DIMS.slice().sort(function(x,y){
-return (dims[x]/DIM_MAX[x]) - (dims[y]/DIM_MAX[y]);
+return ((dims[x]||0)/DIM_MAX[x]) - ((dims[y]||0)/DIM_MAX[y]);
 })[0];
 return { total: total, dims: dims, tier: tier, weakest: weakest, scenario: scenario};
 }
@@ -492,9 +715,11 @@ $("r-verdict").textContent = result.tier.verdict;
 var dh = $("r-dims"); dh.innerHTML = "";
 DIMS.forEach(function(d){
 var v = result.dims[d] || 0, max = DIM_MAX[d], pct = Math.round(v/max*100);
-var row = document.createElement("div"); row.className = "dimrow";
-row.innerHTML = '<span class="n"></span><span class="t"><div style="width:'+pct+'%"></div></span><span class="v"></span>';
+var row = document.createElement("div");
+row.className = "dimrow" + (d === result.weakest? " weak": "");
+row.innerHTML = '<span class="n"></span><span class="t"><i style="width:' + pct + '%"></i></span><span class="v"></span>';
 row.children[0].textContent = d;
+if (d === result.weakest) row.children[0].insertAdjacentHTML("beforeend", '<span class="w">短板</span>');
 row.children[2].textContent = v + "/" + max;
 dh.appendChild(row);
 });
@@ -502,24 +727,26 @@ var ul = $("r-diag"); ul.innerHTML = "";
 var tips = result.tier.tips.slice();
 tips.push(DIM_TIP[result.weakest]);
 if (result.scenario && SCENARIO_TIP[result.scenario]) tips.push(SCENARIO_TIP[result.scenario]);
-tips.slice(0,4).forEach(function(t){
-var li = document.createElement("li"); li.textContent = t; ul.appendChild(li);
+tips.slice(0,4).forEach(function(t, i){
+var li = document.createElement("li");
+li.innerHTML = "<b>" + (i+1) + "</b><span></span>";
+li.lastChild.textContent = t; ul.appendChild(li);
 });
 show("s-report");
 }
-function toForm(){ show("s-form");}
 
 function val(id){ return $(id).value.trim();}
+function resetBtn(){ var btn = $("btn-submit"); btn.disabled = false; btn.textContent = "提交，领取完整报告";}
 function submit(e){
 e.preventDefault();
 var err = $("f-err"); err.textContent = "";
-if ($("f-website").value){ return false;} // 蜜罐：机器人直接拦掉
-if (!val("f-name")){ err.textContent = "请填写姓名"; return false;}
-if (!val("f-company")){ err.textContent = "请填写公司名称"; return false;}
-if (!val("f-title")){ err.textContent = "请选择你的职位"; return false;}
-if (!val("f-size")){ err.textContent = "请选择公司规模"; return false;}
-if (!/^1[3-9]\d{9}$/.test(val("f-phone"))){ err.textContent = "请填写正确的 11 位手机号码"; return false;}
-if (!$("f-consent").checked){ err.textContent = "请先勾选个人信息授权声明"; return false;}
+if ($("f-website").value) return; // 蜜罐：机器人直接拦掉
+if (!val("f-name")){ err.textContent = "请填写姓名"; $("f-name").focus(); return;}
+if (!val("f-company")){ err.textContent = "请填写公司名称"; $("f-company").focus(); return;}
+if (!val("f-title")){ err.textContent = "请选择你的职位"; $("f-title").focus(); return;}
+if (!val("f-size")){ err.textContent = "请选择公司规模"; $("f-size").focus(); return;}
+if (!/^1[3-9]\d{9}$/.test(val("f-phone"))){ err.textContent = "请填写正确的 11 位手机号码"; $("f-phone").focus(); return;}
+if (!$("f-consent").checked){ err.textContent = "请先勾选个人信息授权声明"; return;}
 
 var btn = $("btn-submit"); btn.disabled = true; btn.textContent = "提交中…";
 var r = result || calc();
@@ -535,19 +762,18 @@ var lead = {
 "作答明细": QUESTIONS.map(function(q, i){ return (i+1) + ". " + q.t + " → " + (answers[i] >= 0? q.opts[answers[i]]: "未答");}).join("\n"),
 "来源页": SOURCE.referrer, "UTM": SOURCE.utm, "落地页": SOURCE.landing
 };
-var body = {
-access_key: CONFIG.web3formsKey,
-subject: "" + lead["公司"] + " · " + lead["姓名"] + " · " + lead["档位"],
-from_name: "AI成熟度测评工具",
-message: Object.keys(lead).map(function(k){ return k + "：" + lead[k];}).join("\n")
-};
 // 防止 Key 没配就上线：线索会静默丢失
 if (!/^[0-9a-f-]{36}$/i.test(CONFIG.web3formsKey)){
 console.error("CONFIG.web3formsKey 未配置");
 err.textContent = "表单暂未开通，请直接微信联系我们" + wechatHint();
-btn.disabled = false; btn.textContent = "提交，领取完整报告";
-return false;
+resetBtn(); return;
 }
+var body = {
+access_key: CONFIG.web3formsKey,
+subject: lead["公司"] + " · " + lead["姓名"] + " · " + lead["档位"],
+from_name: "AI成熟度测评工具",
+message: Object.keys(lead).map(function(k){ return k + "：" + lead[k];}).join("\n")
+};
 // 国内访问海外接口偶尔会卡住，15 秒超时后让用户重试
 var ctrl = window.AbortController? new AbortController(): null;
 var timer = ctrl && setTimeout(function(){ ctrl.abort();}, 15000);
@@ -562,9 +788,8 @@ else { throw new Error(data.message || "提交失败");}
 }).catch(function(){
 clearTimeout(timer);
 err.textContent = "提交失败，请检查网络后重试，或直接微信联系我们" + wechatHint() + "。";
-btn.disabled = false; btn.textContent = "提交，领取完整报告";
+resetBtn();
 });
-return false;
 }
 
 function wechatHint(){ return CONFIG.wechatId? "（微信号：" + CONFIG.wechatId + "）": "";}
@@ -576,14 +801,22 @@ var tail = org? "（可能包括" + org + "的课程介绍）": "（可能包括
 return "我已阅读并同意：我提交的以上信息将用于向我发送本次 AI 成熟度诊断报告及后续企业 AI 咨询服务" + tail + "。我可随时要求删除我的信息。";
 }
 
-// 页面加载时写入授权文案
 document.addEventListener("DOMContentLoaded", function(){
-document.getElementById("consent-text").textContent = consentText();
-if (CONFIG.wechatId) $("done-wechat").textContent = "如需更快沟通，可直接添加工作人员微信：" + CONFIG.wechatId;
-history.replaceState({ s: "s-hero"}, "");
+$("consent-text").textContent = consentText();
+if (CONFIG.wechatId){
+$("done-wechat").textContent = "更快沟通，可加工作人员微信：" + CONFIG.wechatId;
+$("done-wechat").classList.remove("hidden");
+}
+Array.prototype.forEach.call(document.querySelectorAll("[data-start]"), function(b){ b.addEventListener("click", start);});
+$("btn-prev").addEventListener("click", prev);
+$("btn-to-form").addEventListener("click", function(){ show("s-form");});
+$("btn-back-report").addEventListener("click", function(){ history.back();});
+$("lead-form").addEventListener("submit", submit);
+$("lead-form").addEventListener("input", function(){ $("f-err").textContent = "";});
+history.replaceState({ s: "home"}, "");
 });
 
-return { start: start, prev: prev, toForm: toForm, submit: submit};
+return { start: start};
 })();
 </script>
 </body>
